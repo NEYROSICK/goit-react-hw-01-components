@@ -4,7 +4,7 @@ export const StatsContainer = styled.section`
   width: 300px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
 `;

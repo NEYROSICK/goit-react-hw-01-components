@@ -1,0 +1,37 @@
+.status {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.green {
+  composes: status;
+  background-color: #00ff2a;
+}
+
+.red {
+  composes: status;
+  background-color: #e10505;
+}
+
+.item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.avatar {
+  background-color: #ffedcc;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
