@@ -34,20 +34,17 @@ const getRandomColor = () => {
 export const StatsItem = styled.li`
   display: flex;
   flex-direction: column;
-  flex-basis: calc(100% / 4);
+  flex-basis: calc(100% / ${props => props.len});
   background-color: ${getRandomColor};
   color: white;
   padding: 20px 0;
 `;
 
 export const StatsType = styled.span`
-  display: flex;
-  width: 100%;
-  list-style-type: none;
+  font-size: 0.75rem;
+  font-weight: bold;
 `;
 
-export const StatsValue = styled.span`
-  display: flex;
-  width: 100%;
-  list-style-type: none;
+export const StatsValue = styled(StatsType)`
+  font-size: 1.25rem;
 `;

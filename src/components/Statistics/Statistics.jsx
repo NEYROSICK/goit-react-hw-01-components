@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import {
   StatsContainer,
@@ -9,33 +9,34 @@ import {
   StatsValue,
 } from './statistics.styled';
 
+const createStatsList = stats => {
+  const markup = stats.map(el => {
+    return (
+      <StatsItem key={el.id} len={stats.length}>
+        <StatsType>{el.label}</StatsType>
+        <StatsValue>{el.percentage}</StatsValue>
+      </StatsItem>
+    );
+  });
+  return markup;
+};
+
 const Statistics = ({ title, stats }) => {
   return (
-    <StatsContainer className="statistics">
-      {title && <StatsTitle className="title">{title}</StatsTitle>}
-
-      <StatsList className="stat-list">
-        <StatsItem className="item">
-          <span className="label">.docx</span>
-          <span className="percentage">4%</span>
-        </StatsItem>
-        <StatsItem className="item">
-          <span className="label">.mp3</span>
-          <span className="percentage">14%</span>
-        </StatsItem>
-        <StatsItem className="item">
-          <span className="label">.pdf</span>
-          <span className="percentage">41%</span>
-        </StatsItem>
-        <StatsItem className="item">
-          <span className="label">.mp4</span>
-          <span className="percentage">12%</span>
-        </StatsItem>
-      </StatsList>
+    <StatsContainer>
+      {title && <StatsTitle>{title}</StatsTitle>}
+      <StatsList>{createStatsList(stats)}</StatsList>
     </StatsContainer>
   );
 };
 
-// Statistics.propTypes = {};
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
 
 export default Statistics;
